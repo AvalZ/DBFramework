@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class DB\Table | DBFramework</title>
+
+	<script type="text/javascript" src="resources/combined.js?2968601004"></script>
+	<script type="text/javascript" src="elementlist.js?2192186754"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-DB.html">DB</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DB.Database.html">Database</a></li>
+				<li><a href="class-DB.Row.html">Row</a></li>
+				<li class="active"><a href="class-DB.Table.html">Table</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-DB.html" title="Summary of DB"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Table</h1>
+
+
+	<div class="description">
+	
+<p>Describes a Table.</p>
+
+<p>This class needs to be initialized with the Table name.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-DB.Database.html"><span>DB\Database</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>DB\Table</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-DB.html">DB</a><br />
+		
+
+				<b>Example:</b>
+				$tab = new Table("myTable");<br />
+		<b>Located at</b> <a href="source-class-DB.Table.html#109-392" title="Go to source code">classes/Table.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-DB.Table.html#166-188" title="Go to source code">__construct</a>( <span>string <var>$tableName</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Creates an istance related to the $tableName table in the Database</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates an istance related to the $tableName table in the Database</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$tableName</var></dt>
+					<dd><code>string</code><br>$tableName</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-DB.Database.html#___construct">DB\Database::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchAll" id="_fetchAll">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DB.Row.html">DB\Row</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchAll">#</a>
+		<code><a href="source-class-DB.Table.html#190-199" title="Go to source code">fetchAll</a>( )</code>
+
+		<div class="description short">
+			
+<p>Fetches an array of Row objects (defined in Row.class.php)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Fetches an array of Row objects (defined in Row.class.php)</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DB.Row.html">DB\Row</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchSome" id="_fetchSome">
+
+		<td class="attributes"><code>
+			 public 
+			array&lt;Row&gt;
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchSome">#</a>
+		<code><a href="source-class-DB.Table.html#201-219" title="Go to source code">fetchSome</a>( <span>integer <var>$num</var> = <span class="php-num">1</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Fetches an array of $num Row objects</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Fetches an array of $num Row objects</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$num</var></dt>
+					<dd><code>integer</code><br>$num Number of Row that must be fetched (default is 1)</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array&lt;Row&gt;</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchByID" id="_fetchByID">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchByID">#</a>
+		<code><a href="source-class-DB.Table.html#221-235" title="Go to source code">fetchByID</a>( <span>mixed <var>$ID1</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchByRow" id="_fetchByRow">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-DB.Row.html">DB\Row</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchByRow">#</a>
+		<code><a href="source-class-DB.Table.html#237-257" title="Go to source code">fetchByRow</a>( <span>integer <var>$row1</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Returns a single row, called by his number. By default it retrieves the first
+row.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns a single row, called by his number. By default it retrieves the first
+row.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$row1</var></dt>
+					<dd><code>integer</code><br>$row1 Default is 0 (first row);</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DB.Row.html">DB\Row</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchCount" id="_fetchCount">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchCount">#</a>
+		<code><a href="source-class-DB.Table.html#259-270" title="Go to source code">fetchCount</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insert" id="_insert">
+
+		<td class="attributes"><code>
+			 public 
+			boolean|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insert">#</a>
+		<code><a href="source-class-DB.Table.html#272-303" title="Go to source code">insert</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code>|array&lt;Row&gt; <var>$obj</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd><code><code><a href="class-DB.Row.html">DB\Row</a></code>|array&lt;Row&gt;</code><br>$obj</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|string</code><br>Returns true if successful, error string if error occurred.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delete" id="_delete">
+
+		<td class="attributes"><code>
+			 public 
+			boolean|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delete">#</a>
+		<code><a href="source-class-DB.Table.html#305-342" title="Go to source code">delete</a>( <span>integer|array&lt;int&gt; <var>$ID1</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Deletes an entry from the Table.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Deletes an entry from the Table.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ID1</var></dt>
+					<dd><code>integer|array&lt;int&gt;</code><br>$ID1 Takes an ID or an array of ID ( as an overload method )</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|string</code><br>Returns true if successful, error string if error occurred.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			boolean|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-DB.Table.html#344-368" title="Go to source code">update</a>( <span>News <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Updates a record in the Table.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Updates a record in the Table.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd><code>News</code><br>$obj The data of the updated record.</dd>
+					<dt><var>$ID</var></dt>
+					<dd><code>integer</code><br>$ID The ID of the record that must be updated.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|string</code><br>Returns true if the query was successful, error string otherwise.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bindArray" id="_bindArray">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bindArray">#</a>
+		<code><a href="source-class-DB.Table.html#370-379" title="Go to source code">bindArray</a>( <span>array <var>$obj</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Binds an array to a query.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Binds an array to a query.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd><code>array</code><br>$obj</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bindObject" id="_bindObject">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bindObject">#</a>
+		<code><a href="source-class-DB.Table.html#381-390" title="Go to source code">bindObject</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code> <var>$obj</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Binds a Row object to a query.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Binds a Row object to a query.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd><code><code><a href="class-DB.Row.html">DB\Row</a></code></code><br>$obj</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-DB.Database.html#methods">DB\Database</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DB.Database.html#_beginTransaction">beginTransaction()</a>, 
+			<a href="class-DB.Database.html#_bind">bind()</a>, 
+			<a href="class-DB.Database.html#_cancelTransaction">cancelTransaction()</a>, 
+			<a href="class-DB.Database.html#_debugDumpParams">debugDumpParams()</a>, 
+			<a href="class-DB.Database.html#_endTransaction">endTransaction()</a>, 
+			<a href="class-DB.Database.html#_execute">execute()</a>, 
+			<a href="class-DB.Database.html#_lastInsertId">lastInsertId()</a>, 
+			<a href="class-DB.Database.html#_query">query()</a>, 
+			<a href="class-DB.Database.html#_resultset">resultset()</a>, 
+			<a href="class-DB.Database.html#_rowCount">rowCount()</a>, 
+			<a href="class-DB.Database.html#_single">single()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="selectQuery" id="$selectQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#118-122" title="Go to source code"><var>$selectQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$selectQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Select all fields.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Select all fields.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="selectByIDQuery" id="$selectByIDQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#124-128" title="Go to source code"><var>$selectByIDQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$selectByIDQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Select by the ID field.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Select by the ID field.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="selectByRowQuery" id="$selectByRowQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#130-134" title="Go to source code"><var>$selectByRowQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$selectByRowQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Select by the row number (starting from 0).</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Select by the row number (starting from 0).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="countQuery" id="$countQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#136-140" title="Go to source code"><var>$countQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$countQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Counts the number of rows in the Table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Counts the number of rows in the Table.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertQuery" id="$insertQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#142-146" title="Go to source code"><var>$insertQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$insertQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Insert a record in the Table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Insert a record in the Table.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="updateQuery" id="$updateQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#148-152" title="Go to source code"><var>$updateQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$updateQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Update a record in the Table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Update a record in the Table.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="deleteQuery" id="$deleteQuery">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#154-158" title="Go to source code"><var>$deleteQuery</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$deleteQuery" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Delete a record in the Table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Delete a record in the Table.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="tableCols" id="$tableCols">
+		<td class="attributes"><code>
+			protected  
+			array&lt;string&gt;
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-DB.Table.html#160-164" title="Go to source code"><var>$tableCols</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$tableCols" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Array containing the Table's columns.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array containing the Table's columns.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-DB.Database.html#properties">DB\Database</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-DB.Database.html#$dbh"><var>$dbh</var></a>, 
+			<a href="class-DB.Database.html#$dbname"><var>$dbname</var></a>, 
+			<a href="class-DB.Database.html#$error"><var>$error</var></a>, 
+			<a href="class-DB.Database.html#$host"><var>$host</var></a>, 
+			<a href="class-DB.Database.html#$pass"><var>$pass</var></a>, 
+			<a href="class-DB.Database.html#$stmt"><var>$stmt</var></a>, 
+			<a href="class-DB.Database.html#$user"><var>$user</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		DBFramework API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
