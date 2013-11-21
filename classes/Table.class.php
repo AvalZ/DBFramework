@@ -10,6 +10,9 @@ include 'DBConnection';
 
 /**
  * Describes a Database connected with PDO.
+ * Will only work using a MySQL Database.
+ *
+ * @todo Make a generic class for various DB types.
  */
 class Database {
 
@@ -23,7 +26,7 @@ class Database {
 
     public function __construct() {
 // Set DSN
-        $dsn = DB_TYPE . ':host=' . $this->host . ';dbname=' . $this->dbname;
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
 // Set options
         $options = array(
             PDO::ATTR_PERSISTENT => true,
@@ -166,17 +169,15 @@ class Table extends Database {
     /**
      * Creates an istance related to the $tableName table in the Database
      * @param string $tableName
+     *
+     * @todo Build Queries from $this->tableCols
      */
     public function __construct( $tableName ) {
         parent::__construct();
 
         $this->query( "DESCRIBE :table" );
         $this->bind( ':table', $tableName );
-        $description = $this->execute();
-
-        foreach ( $description['Field'] as $field ) {
-            $this->tableCols[] = $field;
-        }
+        $this->tableCols = $this->fetchAll( PDO::FETCH_COLUMN );
 
         $this->selectQuery = "SELECT * FROM $tableName";
         $this->selectByIDQuery = "SELECT * FROM $tableName WHERE `ID` = :iD";
