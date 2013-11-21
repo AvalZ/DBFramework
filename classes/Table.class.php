@@ -189,7 +189,7 @@ class Table extends Database {
 
     /**
      * Fetches an array of Row objects (defined in Row.class.php)
-     * @return Row
+     * @return array<Row>
      */
     public function fetchAll() {
         $this->query( $this->selectQuery );
