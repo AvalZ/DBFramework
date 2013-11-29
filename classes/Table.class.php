@@ -178,12 +178,13 @@ class Table extends Database {
         $this->query( "DESCRIBE :table" );
         $this->bind( ':table', $tableName );
         $this->tableCols = $this->fetchAll( PDO::FETCH_COLUMN );
+        unset( $this->tableCols["ID"] );
 
         $this->selectQuery = "SELECT * FROM $tableName";
         $this->selectByIDQuery = "SELECT * FROM $tableName WHERE `ID` = :iD";
         $this->selectByRowQuery = "SELECT * FROM $tableName LIMIT :row, 1";
         $this->countQuery = "SELECT COUNT(*) FROM $tableName";
-        $this->insertQuery = "INSERT INTO `$tableName` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
+        $this->insertQuery = "INSERT INTO `$tableName` (`" . implode( "`, `", $this->tableCols ) . "`) VALUES (:" . implode( ", :", array_map( 'strtolower', $this->tableCols ) ) . ")";
         $this->updateQuery = "UPDATE $tableName SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
         $this->deleteQuery = "DELETE FROM `$tableName` where `ID` = :iD";
     }
