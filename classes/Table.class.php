@@ -185,12 +185,14 @@ class Table extends Database {
         $this->selectByRowQuery = "SELECT * FROM $tableName LIMIT :row, 1";
         $this->countQuery = "SELECT COUNT(*) FROM $tableName";
         $this->insertQuery = "INSERT INTO `$tableName` (`" . implode( "`, `", $this->tableCols ) . "`) VALUES (:" . implode( ", :", array_map( 'strtolower', $this->tableCols ) ) . ")";
-        $this->updateQuery = "UPDATE $tableName SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
+        // $this->updateQuery = "UPDATE $tableName SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
+        $this->updateQuery = "UPDATE $tableName SET " . prepareUpdateArray( $this->tableCols ) . " WHERE ID = :iD";
         $this->deleteQuery = "DELETE FROM `$tableName` where `ID` = :iD";
     }
 
     /**
      * Fetches an array of Row objects (defined in Row.class.php)
+     *
      * @return array<Row>
      */
     public function fetchAll() {
@@ -202,6 +204,7 @@ class Table extends Database {
 
     /**
      * Fetches an array of $num Row objects
+     *
      * @param int $num  Number of Row that must be fetched (default is 1)
      * @return array<Row>
      */
@@ -220,6 +223,12 @@ class Table extends Database {
         return $this->stmt->fetchAll( PDO::FETCH_CLASS, "Row" );
     }
 
+    /**
+     * Returns a single entry, called by its ID.
+     *
+     * @param int $ID1
+     * @return Row
+     */
     public function fetchByID( $ID1 ) {
         $ID = intval( $ID1 );
         $this->query( $this->selectByIDQuery );
@@ -237,8 +246,9 @@ class Table extends Database {
     }
 
     /**
-     * Returns a single row, called by his number.
+     * Returns a single row, called by its number.
      * By default it retrieves the first row.
+     *
      * @param int $row1 Default is 0 (first row);
      * @return Row
      */
@@ -258,6 +268,11 @@ class Table extends Database {
         return $results[0];
     }
 
+    /**
+     * Returns the number of columns in the Table
+     *
+     * @return int
+     */
     public function fetchCount() {
         $this->query( $this->countQuery );
         try {
@@ -272,6 +287,7 @@ class Table extends Database {
     }
 
     /**
+     * Inserts a Row object as a record in this Table
      *
      * @param Row|array<Row> $obj
      * @return boolean|string Returns true if successful, error string if error occurred.
@@ -389,6 +405,24 @@ class Table extends Database {
         foreach ( $this->fields as $field ) {
             $this->bind( ':' . lcfirst( $field ), $obj->$field );
         }
+    }
+
+    /**
+     * Creates the Update query parameters string
+     *
+     * @param type $array Table columns
+     * @return string
+     * @example ArrayCol1 = :arrayCol1, ArrayCol2 = :arrayCol2, ArrayCol3 = :arrayCol3, ...
+     */
+    protected function prepareUpdateArray( $array ) {
+        $newArray = array();
+        foreach ( $array as $value ) {
+            $newArray[] = "$value = :" . lcfirst( $value );
+        }
+
+        $result = implode( ', ', $newArray );
+
+        return $result;
     }
 
 }
