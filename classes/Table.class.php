@@ -5,8 +5,8 @@ namespace DB;
 /**
  * Must be included
  */
-include 'Row.class.php';
-include 'DBConnection.php';
+include_once 'Row.class.php';
+include_once 'DBConnection.php';
 
 /**
  * Describes a Database connected with PDO.
