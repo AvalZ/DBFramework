@@ -14,7 +14,8 @@ include 'DBConnection';
  *
  * @todo Make a generic class for various DB types.
  */
-class Database {
+class Database
+{
 
     protected $host = DB_HOST;
     protected $user = DB_USER;
@@ -24,7 +25,8 @@ class Database {
     protected $error;
     protected $stmt;
 
-    public function __construct() {
+    public function __construct()
+    {
 // Set DSN
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
 // Set options
@@ -34,22 +36,28 @@ class Database {
         );
 
 // Create a new PDO istance
-        try {
+        try
+        {
             $this->dbh = new PDO( $dsn, $this->user, $this->pass, $options );
         }
 // Catch any errors
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
         }
     }
 
-    public function query( $query ) {
+    public function query( $query )
+    {
         $this->stmt = $this->dbh->prepare( $query );
     }
 
-    public function bind( $param, $value, $type = NULL ) {
-        if ( is_null( $type ) ) {
-            switch ( true ) {
+    public function bind( $param, $value, $type = NULL )
+    {
+        if ( is_null( $type ) )
+        {
+            switch ( true )
+            {
                 case is_int( $value ):
                     $type = PDO::PARAM_INT;
                     break;
@@ -67,43 +75,52 @@ class Database {
         $this->stmt->bindValue( $param, $value, $type );
     }
 
-    public function execute() {
+    public function execute()
+    {
         return $this->stmt->execute();
     }
 
-    public function resultset() {
+    public function resultset()
+    {
         $this->execute();
         return $this->stmt->fetchAll( PDO::FETCH_ASSOC );
     }
 
-    public function single() {
+    public function single()
+    {
         $this->execute();
         return $this->stmt->fetch( PDO::FETCH_ASSOC );
     }
 
 // Number of affected rows
-    public function rowCount() {
+    public function rowCount()
+    {
         return $this->stmt->rowCount();
     }
 
-    public function lastInsertId() {
+    public function lastInsertId()
+    {
         return $this->dbh->lastInsertId();
     }
 
 // Transaction methods
-    public function beginTransaction() {
+    public function beginTransaction()
+    {
         return $this->dbh->beginTransaction();
     }
 
-    public function endTransaction() {
+    public function endTransaction()
+    {
         return $this->dbh->commit();
     }
 
-    public function cancelTransaction() {
+    public function cancelTransaction()
+    {
         return $this->dbh->rollBack();
     }
 
-    public function debugDumpParams() {
+    public function debugDumpParams()
+    {
         return $this->stmt->debugDumpParams();
     }
 
@@ -116,7 +133,8 @@ class Database {
  *
  * @example $tab = new Table("myTable");
  */
-class Table extends Database {
+class Table extends Database
+{
 
     /**
      * Select all fields.
@@ -172,7 +190,8 @@ class Table extends Database {
      *
      * @todo Build Queries from $this->tableCols
      */
-    public function __construct( $tableName ) {
+    public function __construct( $tableName )
+    {
         parent::__construct();
 
         $this->query( "DESCRIBE :table" );
@@ -195,7 +214,8 @@ class Table extends Database {
      *
      * @return array<Row>
      */
-    public function fetchAll() {
+    public function fetchAll()
+    {
         $this->query( $this->selectQuery );
         $this->execute();
 
@@ -208,15 +228,18 @@ class Table extends Database {
      * @param int $num  Number of Row that must be fetched (default is 1)
      * @return array<Row>
      */
-    public function fetchSome( $num = 1 ) {
+    public function fetchSome( $num = 1 )
+    {
         $this->query( $this->selectQuery . "LIMIT 0, $num" );
 
         $this->bind( ':num', $num );
-        try {
+        try
+        {
             $this->execute();
         }
         // Catch any errors
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
         }
 
@@ -229,16 +252,19 @@ class Table extends Database {
      * @param int $ID1
      * @return Row
      */
-    public function fetchByID( $ID1 ) {
+    public function fetchByID( $ID1 )
+    {
         $ID = intval( $ID1 );
         $this->query( $this->selectByIDQuery );
 
         $this->bind( ':iD', $ID );
-        try {
+        try
+        {
             $this->execute();
         }
         // Catch any errors
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
         }
         $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, "Row" );
@@ -252,16 +278,19 @@ class Table extends Database {
      * @param int $row1 Default is 0 (first row);
      * @return Row
      */
-    public function fetchByRow( $row1 = 0 ) {
+    public function fetchByRow( $row1 = 0 )
+    {
         $row = intval( $row1 );
         $this->query( $this->selectByRowQuery );
 
         $this->bind( ':row', $row );
-        try {
+        try
+        {
             $this->execute();
         }
         // Catch any errors
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
         }
         $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, "Row" );
@@ -273,13 +302,16 @@ class Table extends Database {
      *
      * @return int
      */
-    public function fetchCount() {
+    public function fetchCount()
+    {
         $this->query( $this->countQuery );
-        try {
+        try
+        {
             $this->execute();
         }
         // Catch any errors
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
         }
         $results = $this->stmt->fetch( PDO::FETCH_BOTH );
@@ -292,29 +324,36 @@ class Table extends Database {
      * @param Row|array<Row> $obj
      * @return boolean|string Returns true if successful, error string if error occurred.
      */
-    public function insert( $obj ) {
+    public function insert( $obj )
+    {
         $this->query( $this->insertQuery );
 
-        if ( is_array( $obj ) ) {
+        if ( is_array( $obj ) )
+        {
             $this->bindArray( $obj );
             $this->bind( ':dataIns', date( "Y-m-d" ) );
         }
-        elseif ( is_object( $obj ) ) {
-            if ( get_class( $obj ) == "Row" ) {
+        elseif ( is_object( $obj ) )
+        {
+            if ( get_class( $obj ) == "Row" )
+            {
                 $this->bindObject( $obj );
                 $this->bind( ':dataIns', date( "Y-m-d" ) );
             }
         }
-        else {
+        else
+        {
             echo "Invalid parameters (must be array or Row type)";
         }
 
 
-        try {
+        try
+        {
             $this->execute();
             return true;
         }
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
             return $this->error;
         }
@@ -326,33 +365,41 @@ class Table extends Database {
      * @param int|array<int> $ID1 Takes an ID or an array of ID ( as an overload method )
      * @return boolean|string Returns true if successful,  error string if error occurred.
      */
-    public function delete( $ID1 ) {
-        if ( is_array( $ID1 ) ) {
-            foreach ( $ID1 as $id1 ) {
+    public function delete( $ID1 )
+    {
+        if ( is_array( $ID1 ) )
+        {
+            foreach ( $ID1 as $id1 )
+            {
                 $id = intval( $id1 );
                 $this->query( $this->deleteQuery );
 
                 $this->bind( ':iD', $id );
-                try {
+                try
+                {
                     $this->execute();
                     return true;
                 }
-                catch ( PDOException $e ) {
+                catch ( PDOException $e )
+                {
                     $this->error = $e->getMessage();
                     return $this->error;
                 }
             }
         }
-        else {
+        else
+        {
             $ID = intval( $ID1 );
             $this->query( $this->deleteQuery );
 
             $this->bind( ':iD', $ID );
-            try {
+            try
+            {
                 $this->execute();
                 return true;
             }
-            catch ( PDOException $e ) {
+            catch ( PDOException $e )
+            {
                 $this->error = $e->getMessage();
                 return $this->error;
             }
@@ -366,7 +413,8 @@ class Table extends Database {
      * @param int $ID      The ID of the record that must be updated.
      * @return boolean|string      Returns true if the query was successful, error string otherwise.
      */
-    public function update( $obj, $ID ) {
+    public function update( $obj, $ID )
+    {
         $this->query( $this->updateQuery );
 
         $this->bind( ':iD', $ID );
@@ -375,11 +423,13 @@ class Table extends Database {
         $this->bind( ':testo', $obj->Testo );
         $this->bind( ':foto', $obj->Foto );
         $this->bind( ':dataIns', date( "Y-m-d" ) );
-        try {
+        try
+        {
             $this->execute();
             return true;
         }
-        catch ( PDOException $e ) {
+        catch ( PDOException $e )
+        {
             $this->error = $e->getMessage();
             return $this->error;
         }
@@ -390,8 +440,10 @@ class Table extends Database {
      *
      * @param array $obj
      */
-    protected function bindArray( $obj ) {
-        foreach ( $this->fields as $field ) {
+    protected function bindArray( $obj )
+    {
+        foreach ( $this->fields as $field )
+        {
             $this->bind( ':' . lcfirst( $field ), $obj[$field] );
         }
     }
@@ -401,8 +453,10 @@ class Table extends Database {
      *
      * @param Row $obj
      */
-    protected function bindObject( $obj ) {
-        foreach ( $this->fields as $field ) {
+    protected function bindObject( $obj )
+    {
+        foreach ( $this->fields as $field )
+        {
             $this->bind( ':' . lcfirst( $field ), $obj->$field );
         }
     }
@@ -414,9 +468,11 @@ class Table extends Database {
      * @return string
      * @example ArrayCol1 = :arrayCol1, ArrayCol2 = :arrayCol2, ArrayCol3 = :arrayCol3, ...
      */
-    protected function prepareUpdateArray( $array ) {
+    protected function prepareUpdateArray( $array )
+    {
         $newArray = array();
-        foreach ( $array as $value ) {
+        foreach ( $array as $value )
+        {
             $newArray[] = "$value = :" . lcfirst( $value );
         }
 
