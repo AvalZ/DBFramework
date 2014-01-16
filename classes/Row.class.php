@@ -1,6 +1,5 @@
 <?php
 
-namespace DB;
 
 /**
  * Describes a Row object.

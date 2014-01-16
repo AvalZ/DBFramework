@@ -118,7 +118,7 @@
 
 				<b>Example:</b>
 				$tab = new Table("myTable");<br />
-		<b>Located at</b> <a href="source-class-DB.Table.html#109-392" title="Go to source code">classes/Table.class.php</a><br />
+		<b>Located at</b> <a href="source-class-DB.Table.html#129-484" title="Go to source code">classes/Table.class.php</a><br />
 	</div>
 
 
@@ -136,7 +136,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-DB.Table.html#166-188" title="Go to source code">__construct</a>( <span>string <var>$tableName</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#187-210" title="Go to source code">__construct</a>( <span>string <var>$tableName</var></span> )</code>
 
 		<div class="description short">
 			
@@ -176,7 +176,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchAll">#</a>
-		<code><a href="source-class-DB.Table.html#190-199" title="Go to source code">fetchAll</a>( )</code>
+		<code><a href="source-class-DB.Table.html#212-223" title="Go to source code">fetchAll</a>( )</code>
 
 		<div class="description short">
 			
@@ -213,7 +213,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchSome">#</a>
-		<code><a href="source-class-DB.Table.html#201-219" title="Go to source code">fetchSome</a>( <span>integer <var>$num</var> = <span class="php-num">1</span> </span> )</code>
+		<code><a href="source-class-DB.Table.html#225-247" title="Go to source code">fetchSome</a>( <span>integer <var>$num</var> = <span class="php-num">1</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -248,24 +248,37 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-DB.Row.html">DB\Row</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchByID">#</a>
-		<code><a href="source-class-DB.Table.html#221-235" title="Go to source code">fetchByID</a>( <span>mixed <var>$ID1</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#249-272" title="Go to source code">fetchByID</a>( <span>integer <var>$ID1</var></span> )</code>
 
 		<div class="description short">
 			
+<p>Returns a single entry, called by its ID.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns a single entry, called by its ID.</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ID1</var></dt>
+					<dd><code>integer</code><br>$ID1</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-DB.Row.html">DB\Row</a></code></code><br />
+				</div>
 
 
 
@@ -284,18 +297,18 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchByRow">#</a>
-		<code><a href="source-class-DB.Table.html#237-257" title="Go to source code">fetchByRow</a>( <span>integer <var>$row1</var> = <span class="php-num">0</span> </span> )</code>
+		<code><a href="source-class-DB.Table.html#274-298" title="Go to source code">fetchByRow</a>( <span>integer <var>$row1</var> = <span class="php-num">0</span> </span> )</code>
 
 		<div class="description short">
 			
-<p>Returns a single row, called by his number. By default it retrieves the first
+<p>Returns a single row, called by its number. By default it retrieves the first
 row.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Returns a single row, called by his number. By default it retrieves the first
+<p>Returns a single row, called by its number. By default it retrieves the first
 row.</p>
 
 
@@ -321,24 +334,32 @@ row.</p>
 
 		<td class="attributes"><code>
 			 public 
-			
+			integer
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchCount">#</a>
-		<code><a href="source-class-DB.Table.html#259-270" title="Go to source code">fetchCount</a>( )</code>
+		<code><a href="source-class-DB.Table.html#300-319" title="Go to source code">fetchCount</a>( )</code>
 
 		<div class="description short">
 			
+<p>Returns the number of columns in the Table</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Returns the number of columns in the Table</p>
 
 
 
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
 
 
 
@@ -357,14 +378,18 @@ row.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_insert">#</a>
-		<code><a href="source-class-DB.Table.html#272-303" title="Go to source code">insert</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code>|array&lt;Row&gt; <var>$obj</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#321-360" title="Go to source code">insert</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code>|array&lt;Row&gt; <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
+<p>Inserts a Row object as a record in this Table</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Inserts a Row object as a record in this Table</p>
+
 
 
 				<h4>Parameters</h4>
@@ -395,7 +420,7 @@ row.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-DB.Table.html#305-342" title="Go to source code">delete</a>( <span>integer|array&lt;int&gt; <var>$ID1</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#362-407" title="Go to source code">delete</a>( <span>integer|array&lt;int&gt; <var>$ID1</var></span> )</code>
 
 		<div class="description short">
 			
@@ -437,7 +462,7 @@ row.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-DB.Table.html#344-368" title="Go to source code">update</a>( <span>News <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#409-436" title="Go to source code">update</a>( <span>News <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
 
 		<div class="description short">
 			
@@ -481,7 +506,7 @@ row.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindArray">#</a>
-		<code><a href="source-class-DB.Table.html#370-379" title="Go to source code">bindArray</a>( <span>array <var>$obj</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#438-449" title="Go to source code">bindArray</a>( <span>array <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
@@ -519,7 +544,7 @@ row.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindObject">#</a>
-		<code><a href="source-class-DB.Table.html#381-390" title="Go to source code">bindObject</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code> <var>$obj</var></span> )</code>
+		<code><a href="source-class-DB.Table.html#451-462" title="Go to source code">bindObject</a>( <span><code><a href="class-DB.Row.html">DB\Row</a></code> <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
@@ -541,6 +566,52 @@ row.</p>
 
 
 
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="prepareUpdateArray" id="_prepareUpdateArray">
+
+		<td class="attributes"><code>
+			 protected 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prepareUpdateArray">#</a>
+		<code><a href="source-class-DB.Table.html#464-482" title="Go to source code">prepareUpdateArray</a>( <span>type <var>$array</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Creates the Update query parameters string</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates the Update query parameters string</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$array</var></dt>
+					<dd><code>type</code><br>$array Table columns</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>Example</h4>
+				<div class="list">
+						ArrayCol1 = :arrayCol1, ArrayCol2 = :arrayCol2, ArrayCol3 = :arrayCol3, ...<br />
+				</div>
 
 
 		</div>
@@ -586,7 +657,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#118-122" title="Go to source code"><var>$selectQuery</var></a>
+				<a href="source-class-DB.Table.html#139-143" title="Go to source code"><var>$selectQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -613,7 +684,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#124-128" title="Go to source code"><var>$selectByIDQuery</var></a>
+				<a href="source-class-DB.Table.html#145-149" title="Go to source code"><var>$selectByIDQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -640,7 +711,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#130-134" title="Go to source code"><var>$selectByRowQuery</var></a>
+				<a href="source-class-DB.Table.html#151-155" title="Go to source code"><var>$selectByRowQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -667,7 +738,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#136-140" title="Go to source code"><var>$countQuery</var></a>
+				<a href="source-class-DB.Table.html#157-161" title="Go to source code"><var>$countQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -694,7 +765,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#142-146" title="Go to source code"><var>$insertQuery</var></a>
+				<a href="source-class-DB.Table.html#163-167" title="Go to source code"><var>$insertQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -721,7 +792,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#148-152" title="Go to source code"><var>$updateQuery</var></a>
+				<a href="source-class-DB.Table.html#169-173" title="Go to source code"><var>$updateQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -748,7 +819,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#154-158" title="Go to source code"><var>$deleteQuery</var></a>
+				<a href="source-class-DB.Table.html#175-179" title="Go to source code"><var>$deleteQuery</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -775,7 +846,7 @@ row.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-DB.Table.html#160-164" title="Go to source code"><var>$tableCols</var></a>
+				<a href="source-class-DB.Table.html#181-185" title="Go to source code"><var>$tableCols</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
