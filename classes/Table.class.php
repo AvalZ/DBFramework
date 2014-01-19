@@ -223,6 +223,19 @@ class Table extends Database
     }
 
     /**
+     * Fetches an array of associative arrays. Each field in the array is a field in the Table.
+     *
+     * @return array<array>
+     */
+    public function fetchArray()
+    {
+        $this->query( $this->selectQuery );
+        $this->execute();
+
+        return $this->stmt->fetchAll( PDO::FETCH_ASSOC );
+    }
+
+    /**
      * Fetches an array of $num Row objects
      *
      * @param int $num  Number of Row that must be fetched (default is 1)
@@ -479,6 +492,60 @@ class Table extends Database
         $result = implode( ', ', $newArray );
 
         return $result;
+    }
+
+}
+
+/**
+ * A class containing special methods for User tables.
+ */
+class UserTable extends Table
+{
+
+    /**
+     * Check if a user is in the Table.
+     * Fields for user and password must be User and Password.
+     *
+     * @var string
+     */
+    protected $checkUserQuery;
+
+    /**
+     * @see Table->__construct( $tableName )
+     *
+     * @param string $tableName
+     */
+    public function __construct( $tableName )
+    {
+        parent::__construct( $tableName );
+
+        $this->checkUserQuery = "SELECT COUNT( * ) FROM  `$tableName` WHERE  `User` =  :user AND  `Password` = SHA1( :password )";
+    }
+
+    /**
+     * Check if a user was inserted in the Database.
+     *
+     * @param string $user
+     * @param string $password
+     * @return boolean True if the user is in the Database, false otherwise.
+     */
+    public function checkUser( $user, $password )
+    {
+        $this->query( $this->checkUserQuery );
+        $this->bind( ':user', $user );
+        $this->bind( ':password', $password );
+
+        $this->execute();
+
+        $results = $this->stmt->fetch( PDO::FETCH_BOTH );
+        if ( $results[0] > 0 )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
