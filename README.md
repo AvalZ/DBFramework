@@ -1,4 +1,4 @@
-DBFramework
+Dogma
 ===========
 [![Gitter chat](https://badges.gitter.im/AvalZ/DBFramework.png)](https://gitter.im/AvalZ/DBFramework)
 
