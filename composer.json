@@ -1,0 +1,11 @@
+{
+    "name": "avalz/dogma",
+    "description": "A Doctrine-inspired PHP library, using PDO and the Data Mapper ORM pattern",
+    "authors": [
+        {
+            "name": "Andrea Valenza",
+            "email": "avalenza89@gmail.com"
+        }
+    ],
+    "require": {}
+}
